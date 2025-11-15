@@ -1,6 +1,7 @@
 # Rupiya.app - Complete Website UI/UX
 
 A comprehensive, production-ready website for rupiya.app - India's largest platform for residue-free farming, regenerative agriculture-based carbon credit generation, and farmer financial inclusivity.
+[Visit Rupiya.app]([https://rupiya.app](https://rupiya-app-123.vercel.app/) "Go to official website")
 
 ## 🚀 Features
 
@@ -201,11 +202,6 @@ Update copy in respective page files or see `docs/UI_COPY.md`.
 
 This project is proprietary software for rupiya.app.
 
-## 🤝 Support
-
-For questions or support, contact:
-- Email: info@rupiya.app
-- Phone: +91 79 4100 6237
 
 ---
 
