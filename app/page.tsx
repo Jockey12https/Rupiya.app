@@ -228,7 +228,7 @@ export default function HomePage() {
                 <p className="text-sm text-muted-foreground mb-6">
                   rupiya.app offers a complete gold solution, including gold loans, digital gold, and jewellery at the Lowest Making Charges.
                 </p>
-                <Link href="/wallet/gold">
+                <Link href="/wallet/gold-tech">
                   <Button variant="outline" size="sm">Know More</Button>
                 </Link>
               </CardContent>
