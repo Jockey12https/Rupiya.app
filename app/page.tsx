@@ -279,48 +279,65 @@ export default function HomePage() {
 
       {/* Products Showcase */}
       <section className="py-20 bg-white">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-forest-900 mb-4">
-              Our Products
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              35+ residue-free agricultural inputs for sustainable farming
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
-            {[
-              "Rupiya Kuber",
-              "Grow Shakti",
-              "N.P.K. Shakti",
-              "Rupiya ORGO",
-              "Cereal Shakti",
-            ].map((product, i) => (
-              <Card key={i} className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="aspect-square rounded-lg overflow-hidden mb-4 bg-forest-100">
-                    <Image
-                      src={`https://images.unsplash.com/photo-1611095973763-414019e72400?w=400&h=400&fit=crop&sig=${i}`}
-                      alt={`${product} - Agricultural product`}
-                      width={400}
-                      height={400}
-                      className="object-cover w-full h-full"
-                    />
-                  </div>
-                  <CardTitle className="text-lg">{product}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <Link href="/products">
-                    <Button variant="outline" size="sm" className="w-full">
-                      View Product
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+  <div className="container">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl md:text-4xl font-bold text-forest-900 mb-4">
+        Our Products
+      </h2>
+      <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        35+ residue-free agricultural inputs for sustainable farming
+      </p>
+    </div>
+
+    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
+      {[
+        {
+          name: "Rupiya Kuber",
+          image:"/images/kuber.jpg",
+        },
+        {
+          name: "Grow Shakti",
+          image:"/images/grow.jpg",
+        },
+        {
+          name: "Cereal Shakti",
+          image: `/images/cereal.jpg`,
+        },
+        {
+          name: "Nitro Shakti",
+          image: `/images/nitro.jpg`,
+        },
+        {
+          name: "Root Shakti",
+          image: `/images/root.jpg`,
+        },
+      ].map((product, i) => (
+        <Card key={i} className="hover:shadow-lg transition-shadow">
+          <CardHeader>
+            <div className="aspect-square rounded-lg overflow-hidden mb-4 bg-forest-100">
+              <Image
+                src={product.image}
+                alt={`${product.name} - Agricultural product`}
+                width={400}
+                height={400}
+                className="object-cover w-full h-full"
+              />
+            </div>
+            <CardTitle className="text-lg">{product.name}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <Link href="/products">
+              <Button variant="outline" size="sm" className="w-full">
+                View Product
+              </Button>
+            </Link>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* Testimonials */}
       <section className="py-20 bg-beige-50">
