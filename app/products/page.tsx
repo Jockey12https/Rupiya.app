@@ -567,12 +567,11 @@ export default function ProductsPage() {
               Join 50,000+ farmers already using our premium residue-free products
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="https://play.google.com/store/apps/details?id=rupiya.app&pli=1" target="_blank" rel="noopener noreferrer">
               <Button size="lg" variant="secondary" className="border-white text-black hover:bg-white/20">
                 Download Rupiya App
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-black hover:bg-white/20">
-                Contact Sales
-              </Button>
+              </a>
             </div>
           </div>
         </div>

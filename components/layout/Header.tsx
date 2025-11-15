@@ -2,21 +2,81 @@
 
 import * as React from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Menu, X, ChevronDown, Download, LogOut } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { motion, AnimatePresence } from "framer-motion"
+
+// Import auth context
 import { useAuth } from "@/lib/auth-context"
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
   const [expandedMenu, setExpandedMenu] = React.useState<string | null>(null)
   const [activeDropdown, setActiveDropdown] = React.useState<string | null>(null)
+  const [isScrolled, setIsScrolled] = React.useState(false)
+  const [isHovered, setIsHovered] = React.useState(false)
+  const [logoError, setLogoError] = React.useState(false)
+  
+  // Use auth context
   const { user, loading, logout } = useAuth()
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2">
-          <span className="text-2xl font-bold text-forest-600">rupiya.app</span>
+        <Link 
+          href="/" 
+          className="flex items-center space-x-2 relative group"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <div className="relative flex items-center">
+            <motion.div
+              className="relative w-10 h-10 md:w-12 md:h-12"
+              animate={{ 
+                scale: isHovered ? 1.1 : 1,
+                rotate: isHovered ? [0, -5, 5, -5, 0] : 0
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              {!logoError ? (
+                <Image
+                  src="/logo.png"
+                  alt="Rupiya.app Logo"
+                  width={48}
+                  height={48}
+                  className="object-contain w-full h-full"
+                  priority
+                  onError={() => setLogoError(true)}
+                />
+              ) : (
+                <div className="w-full h-full rounded-full bg-gradient-to-br from-forest-500 to-forest-700 flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                  ₹
+                </div>
+              )}
+            </motion.div>
+            <AnimatePresence>
+              {(isHovered || isScrolled) && (
+                <motion.span
+                  initial={{ opacity: 0, x: -10, width: 0 }}
+                  animate={{ opacity: 1, x: 0, width: "auto" }}
+                  exit={{ opacity: 0, x: -10, width: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="text-2xl font-bold text-forest-600 ml-2 whitespace-nowrap overflow-hidden"
+                >
+                  rupiya.app
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
