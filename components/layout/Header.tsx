@@ -35,12 +35,12 @@ export function Header() {
               </Link>
               {activeDropdown === 'smart-farming' && (
                 <div 
-                  className="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-[600px]"
+                  className="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-[700px]"
                   onMouseEnter={() => setActiveDropdown('smart-farming')}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   <div className="rounded-md border bg-popover p-4 shadow-md">
-                    <ul className="grid grid-cols-2 gap-3">
+                    <ul className="grid grid-cols-3 gap-3">
                       <li>
                         <Link
                           href="/smart-farming#soil-testing"
@@ -138,12 +138,12 @@ export function Header() {
               </Link>
               {activeDropdown === 'carbon-credits' && (
                 <div 
-                  className="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-[500px]"
+                  className="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-[700px]"
                   onMouseEnter={() => setActiveDropdown('carbon-credits')}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   <div className="rounded-md border bg-popover p-4 shadow-md">
-                    <ul className="space-y-1">
+                    <ul className="grid grid-cols-3 gap-3">
                       <li>
                         <Link
                           href="/carbon-credits#what-are-credits"
@@ -200,12 +200,12 @@ export function Header() {
               </Link>
               {activeDropdown === 'wallet' && (
                 <div 
-                  className="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-[500px]"
+                  className="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-[700px]"
                   onMouseEnter={() => setActiveDropdown('wallet')}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   <div className="rounded-md border bg-popover p-4 shadow-md">
-                    <ul className="grid grid-cols-2 gap-3">
+                    <ul className="grid grid-cols-3 gap-3">
                       <li>
                         <Link
                           href="/wallet/recharge"
@@ -273,12 +273,12 @@ export function Header() {
               </button>
               {activeDropdown === 'resources' && (
                 <div 
-                  className="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-[500px]"
+                  className="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-[700px]"
                   onMouseEnter={() => setActiveDropdown('resources')}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   <div className="rounded-md border bg-popover p-4 shadow-md">
-                    <ul className="space-y-1">
+                    <ul className="grid grid-cols-2 gap-3">
                       <li>
                         <Link
                           href="/careers"
@@ -412,42 +412,42 @@ export function Header() {
               {expandedMenu === "smart-farming" && (
                 <div className="pl-4 space-y-2 py-2">
                   <Link
-                    href="/smart-farming/soil-testing"
+                    href="/smart-farming#soil-testing"
                     className="block py-2 text-sm text-muted-foreground hover:text-forest-600"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Satellite Soil Testing
                   </Link>
                   <Link
-                    href="/smart-farming/crop-monitoring"
+                    href="/smart-farming#crop-monitoring"
                     className="block py-2 text-sm text-muted-foreground hover:text-forest-600"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     AI Crop Monitoring
                   </Link>
                   <Link
-                    href="/smart-farming/advisory"
+                    href="/smart-farming#advisory"
                     className="block py-2 text-sm text-muted-foreground hover:text-forest-600"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Agronomy Advisory
                   </Link>
                   <Link
-                    href="/smart-farming/inputs"
+                    href="/smart-farming#inputs"
                     className="block py-2 text-sm text-muted-foreground hover:text-forest-600"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Residue-Free Inputs
                   </Link>
                   <Link
-                    href="/smart-farming/insurance"
+                    href="/smart-farming#insurance"
                     className="block py-2 text-sm text-muted-foreground hover:text-forest-600"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Parametric Insurance
                   </Link>
                   <Link
-                    href="/smart-farming/buyback"
+                    href="/smart-farming#buyback"
                     className="block py-2 text-sm text-muted-foreground hover:text-forest-600"
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -558,7 +558,7 @@ export function Header() {
                     Insurance
                   </Link>
                   <Link
-                    href="/wallet/gold"
+                    href="/wallet/gold-tech"
                     className="block py-2 text-sm text-muted-foreground hover:text-forest-600"
                     onClick={() => setMobileMenuOpen(false)}
                   >
