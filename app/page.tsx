@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Download, Leaf, TrendingUp, Shield, Users, Award, Star } from "lucide-react"
@@ -27,7 +28,16 @@ export default function HomePage() {
               </Button>
             </div>
             <div className="relative">
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-forest-200 to-forest-400 opacity-20"></div>
+              <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&h=800&fit=crop"
+                  alt="Farmer using smartphone in field"
+                  width={800}
+                  height={800}
+                  className="object-cover w-full h-full"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -38,7 +48,15 @@ export default function HomePage() {
         <div className="container">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
             <div className="relative order-2 lg:order-1">
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-beige-200 to-beige-400 opacity-20"></div>
+              <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="https://www.cropin.com/wp-content/uploads/2021/09/Regenerative-Agriculture-1.jpg"
+                  alt="Regenerative farming - healthy soil and crops"
+                  width={800}
+                  height={800}
+                  className="object-cover w-full h-full"
+                />
+              </div>
             </div>
             <div className="space-y-6 order-1 lg:order-2">
               <h2 className="text-3xl md:text-4xl font-bold text-forest-900">
@@ -121,7 +139,15 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="relative">
-              <div className="aspect-square rounded-2xl bg-white/10 backdrop-blur"></div>
+              <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=800&h=800&fit=crop"
+                  alt="Carbon credits and environmental sustainability"
+                  width={800}
+                  height={800}
+                  className="object-cover w-full h-full"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -275,7 +301,15 @@ export default function HomePage() {
             ].map((product, i) => (
               <Card key={i} className="hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="aspect-square rounded-lg bg-gradient-to-br from-forest-100 to-forest-200 mb-4"></div>
+                  <div className="aspect-square rounded-lg overflow-hidden mb-4 bg-forest-100">
+                    <Image
+                      src={`https://images.unsplash.com/photo-1611095973763-414019e72400?w=400&h=400&fit=crop&sig=${i}`}
+                      alt={`${product} - Agricultural product`}
+                      width={400}
+                      height={400}
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
                   <CardTitle className="text-lg">{product}</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -319,16 +353,27 @@ export default function HomePage() {
             ].map((testimonial, i) => (
               <Card key={i}>
                 <CardHeader>
-                  <div className="flex items-center space-x-1 mb-2">
-                    {[...Array(testimonial.rating)].map((_, j) => (
-                      <Star key={j} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    ))}
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="h-12 w-12 rounded-full overflow-hidden bg-forest-100 flex-shrink-0">
+                      <Image
+                        src={`https://i.pravatar.cc/150?img=${i + 10}`}
+                        alt={testimonial.name}
+                        width={48}
+                        height={48}
+                        className="object-cover w-full h-full"
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-semibold">{testimonial.name}</p>
+                      <div className="flex items-center space-x-1">
+                        {[...Array(testimonial.rating)].map((_, j) => (
+                          <Star key={j} className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                        ))}
+                      </div>
+                    </div>
                   </div>
                   <CardDescription>{testimonial.text}</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <p className="font-semibold">{testimonial.name}</p>
-                </CardContent>
               </Card>
             ))}
           </div>
@@ -366,9 +411,11 @@ export default function HomePage() {
                 org: "Times Gujarat Icons",
               },
             ].map((award, i) => (
-              <Card key={i} className="text-center">
+              <Card key={i} className="text-center hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <Award className="h-12 w-12 mx-auto mb-4 text-forest-600" />
+                  <div className="h-20 w-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-forest-100 to-forest-200 flex items-center justify-center">
+                    <Award className="h-10 w-10 text-forest-600" />
+                  </div>
                   <CardTitle className="text-base">{award.title}</CardTitle>
                   <CardDescription>{award.org}</CardDescription>
                 </CardHeader>
