@@ -1,7 +1,8 @@
 # Rupiya.app - Complete Website UI/UX
 
 A comprehensive, production-ready website for rupiya.app - India's largest platform for residue-free farming, regenerative agriculture-based carbon credit generation, and farmer financial inclusivity.
-[Visit Rupiya.app]([https://rupiya.app](https://rupiya-app-123.vercel.app/))
+
+[Visit Rupiya.app](https://rupiya-app-123.vercel.app/)
 
 ## 🚀 Features
 
