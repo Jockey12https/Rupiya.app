@@ -73,14 +73,7 @@ export default function HomePage() {
               <p className="text-lg text-muted-foreground max-w-xl">
                 Regenerative farming isn't just a method—it's a promise to your land, your family, and the generations ahead.
               </p>
-              <div className="pt-4">
-                <a href="https://play.google.com/store/apps/details?id=rupiya.app&pli=1" target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="bg-forest-600 hover:bg-forest-700 text-white">
-                    <Download className="mr-2 h-5 w-5" />
-                    Download Now
-                  </Button>
-                </a>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -100,14 +93,7 @@ export default function HomePage() {
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               From recharges to loans, insurance to gold, rupiya.app puts everything you need right at your fingertips.
             </p>
-            <div className="pt-4">
-              <a href="https://play.google.com/store/apps/details?id=rupiya.app&pli=1" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="bg-forest-600 hover:bg-forest-700 text-white">
-                  <Download className="mr-2 h-5 w-5" />
-                  Download Now
-                </Button>
-              </a>
-            </div>
+           
           </div>
         </div>
       </section>
@@ -122,14 +108,7 @@ export default function HomePage() {
             <p className="text-lg text-muted-foreground">
               We empower farmers with high-quality fertilizers, advanced satellite-based soil analysis, and reliable crop insurance.
             </p>
-            <div className="pt-4">
-              <a href="https://play.google.com/store/apps/details?id=rupiya.app&pli=1" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="bg-forest-600 hover:bg-forest-700 text-white">
-                  <Download className="mr-2 h-5 w-5" />
-                  Download Now
-                </Button>
-              </a>
-            </div>
+            
           </div>
         </div>
       </section>
@@ -349,12 +328,12 @@ export default function HomePage() {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                name: "Ramesh Yadav",
+                name: "Pooja Sharma",
                 rating: 5,
                 text: "All financial services in one app, making transactions super easy! No need for multiple apps anymore. The cashback offers are the best part!",
               },
               {
-                name: "Pooja Sharma",
+                name: "Ramesh Yadav",
                 rating: 5,
                 text: "Fast, secure, and convenient! Everything from recharges to bill payments is available in one place. The cashback rewards make it even better!",
               },
