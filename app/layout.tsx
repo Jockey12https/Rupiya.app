@@ -10,6 +10,16 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "rupiya.app - किसान की हर जरुरत का Digital साथी",
   description: "India's largest platform for residue-free farming, regenerative agriculture-based carbon credit generation, and farmer financial inclusivity.",
+  icons: {
+    icon: "/logo.png",
+    // You can also add other icon sizes if needed:
+    // icon: [
+    //   { url: "/logo.png", sizes: "32x32", type: "image/png" },
+    //   { url: "/logo-16x16.png", sizes: "16x16", type: "image/png" },
+    // ],
+    // shortcut: "/logo.png",
+    // apple: "/apple-touch-icon.png",
+  },
 }
 
 export default function RootLayout({
@@ -29,4 +39,3 @@ export default function RootLayout({
     </html>
   )
 }
-
