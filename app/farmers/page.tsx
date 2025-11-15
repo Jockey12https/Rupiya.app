@@ -19,10 +19,6 @@ export default function FarmersPage() {
             <p className="text-lg text-muted-foreground">
               Everything you need for residue-free farming, increased yields, and additional income through carbon credits.
             </p>
-            <Button size="lg" className="bg-forest-600 hover:bg-forest-700">
-              Get Started
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
           </div>
         </div>
       </section>
@@ -334,10 +330,6 @@ export default function FarmersPage() {
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Transform Your Farming?
           </h2>
-          <Button size="lg" variant="secondary" className="bg-white text-forest-600 hover:bg-beige-50">
-            Get Started Today
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
         </div>
       </section>
     </div>

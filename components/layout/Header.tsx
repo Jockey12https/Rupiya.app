@@ -2,19 +2,15 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Menu, X, ChevronDown, Download } from "lucide-react"
+import { Menu, X, ChevronDown, Download, LogOut } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
+import { useAuth } from "@/lib/auth-context"
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
+  const [expandedMenu, setExpandedMenu] = React.useState<string | null>(null)
+  const [activeDropdown, setActiveDropdown] = React.useState<string | null>(null)
+  const { user, loading, logout } = useAuth()
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -24,18 +20,31 @@ export function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6">
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>Smart Farming</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                    <li>
-                      <NavigationMenuLink asChild>
+        <nav className="hidden md:flex items-center space-x-1">
+          <div className="flex items-center space-x-1">
+            {/* Smart Farming */}
+            <div className="relative group">
+              <Link href="/smart-farming">
+                <button
+                  className="inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none"
+                  onMouseEnter={() => setActiveDropdown('smart-farming')}
+                >
+                  Smart Farming
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </button>
+              </Link>
+              {activeDropdown === 'smart-farming' && (
+                <div 
+                  className="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-[600px]"
+                  onMouseEnter={() => setActiveDropdown('smart-farming')}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
+                  <div className="rounded-md border bg-popover p-4 shadow-md">
+                    <ul className="grid grid-cols-2 gap-3">
+                      <li>
                         <Link
-                          href="/smart-farming/soil-testing"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          href="/smart-farming#soil-testing"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
                         >
                           <div className="text-sm font-medium leading-none">
                             Satellite Soil Testing
@@ -44,13 +53,11 @@ export function Header() {
                             AI-powered soil analysis
                           </p>
                         </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
+                      </li>
+                      <li>
                         <Link
-                          href="/smart-farming/crop-monitoring"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          href="/smart-farming#crop-monitoring"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
                         >
                           <div className="text-sm font-medium leading-none">
                             AI Crop Monitoring
@@ -59,13 +66,11 @@ export function Header() {
                             Real-time satellite monitoring
                           </p>
                         </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
+                      </li>
+                      <li>
                         <Link
-                          href="/smart-farming/advisory"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          href="/smart-farming#advisory"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
                         >
                           <div className="text-sm font-medium leading-none">
                             Agronomy Advisory
@@ -74,13 +79,11 @@ export function Header() {
                             Expert guidance & support
                           </p>
                         </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
+                      </li>
+                      <li>
                         <Link
-                          href="/smart-farming/inputs"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          href="/smart-farming#inputs"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
                         >
                           <div className="text-sm font-medium leading-none">
                             Residue-Free Inputs
@@ -89,13 +92,11 @@ export function Header() {
                             35+ certified products
                           </p>
                         </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
+                      </li>
+                      <li>
                         <Link
-                          href="/smart-farming/insurance"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          href="/smart-farming#insurance"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
                         >
                           <div className="text-sm font-medium leading-none">
                             Parametric Insurance
@@ -104,13 +105,11 @@ export function Header() {
                             Weather-based protection
                           </p>
                         </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
+                      </li>
+                      <li>
                         <Link
-                          href="/smart-farming/buyback"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          href="/smart-farming#buyback"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
                         >
                           <div className="text-sm font-medium leading-none">
                             Buy-Back Program
@@ -119,70 +118,95 @@ export function Header() {
                             Direct from farm gate
                           </p>
                         </Link>
-                      </NavigationMenuLink>
-                    </li>
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              )}
+            </div>
 
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>Carbon Credits</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px]">
-                    <li>
-                      <NavigationMenuLink asChild>
+            {/* Carbon Credits */}
+            <div className="relative group">
+              <Link href="/carbon-credits">
+                <button
+                  className="inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none"
+                  onMouseEnter={() => setActiveDropdown('carbon-credits')}
+                >
+                  Carbon Credits
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </button>
+              </Link>
+              {activeDropdown === 'carbon-credits' && (
+                <div 
+                  className="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-[500px]"
+                  onMouseEnter={() => setActiveDropdown('carbon-credits')}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
+                  <div className="rounded-md border bg-popover p-4 shadow-md">
+                    <ul className="space-y-1">
+                      <li>
                         <Link
-                          href="/carbon-credits/what-are-carbon-credits"
+                          href="/carbon-credits#what-are-credits"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
                         >
                           <div className="text-sm font-medium leading-none">
                             What are Carbon Credits?
                           </div>
                         </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
+                      </li>
+                      <li>
                         <Link
-                          href="/carbon-credits/how-it-works"
+                          href="/carbon-credits#how-it-works"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
                         >
                           <div className="text-sm font-medium leading-none">
                             How It Works
                           </div>
                         </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
+                      </li>
+                      <li>
                         <Link
-                          href="/carbon-credits/farmer-income"
+                          href="/carbon-credits#rewards"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
                         >
                           <div className="text-sm font-medium leading-none">
-                            Farmer Income
+                            Rewards & Partnership
                           </div>
                         </Link>
-                      </NavigationMenuLink>
-                    </li>
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              )}
+            </div>
 
-              <NavigationMenuItem>
-                <Link href="/products" legacyBehavior passHref>
-                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
-                    Products
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
+            {/* Products */}
+            <Link href="/products">
+              <button className="inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none">
+                Products
+              </button>
+            </Link>
 
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>Digital Wallet</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
-                    <li>
-                      <NavigationMenuLink asChild>
+            {/* Digital Wallet */}
+            <div className="relative group">
+              <Link href="/wallet">
+                <button
+                  className="inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none"
+                  onMouseEnter={() => setActiveDropdown('wallet')}
+                >
+                  Digital Wallet
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </button>
+              </Link>
+              {activeDropdown === 'wallet' && (
+                <div 
+                  className="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-[500px]"
+                  onMouseEnter={() => setActiveDropdown('wallet')}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
+                  <div className="rounded-md border bg-popover p-4 shadow-md">
+                    <ul className="grid grid-cols-2 gap-3">
+                      <li>
                         <Link
                           href="/wallet/recharge"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
@@ -191,10 +215,8 @@ export function Header() {
                             Recharge
                           </div>
                         </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
+                      </li>
+                      <li>
                         <Link
                           href="/wallet/bookings"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
@@ -203,10 +225,8 @@ export function Header() {
                             Bookings
                           </div>
                         </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
+                      </li>
+                      <li>
                         <Link
                           href="/wallet/insurance"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
@@ -215,22 +235,18 @@ export function Header() {
                             Insurance
                           </div>
                         </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
+                      </li>
+                      <li>
                         <Link
-                          href="/wallet/gold"
+                          href="/wallet/gold-tech"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
                         >
                           <div className="text-sm font-medium leading-none">
                             Gold Tech
                           </div>
                         </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
+                      </li>
+                      <li>
                         <Link
                           href="/wallet/loans"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
@@ -239,55 +255,120 @@ export function Header() {
                             Loans
                           </div>
                         </Link>
-                      </NavigationMenuLink>
-                    </li>
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              )}
+            </div>
 
-              <NavigationMenuItem>
-                <Link href="/resources" legacyBehavior passHref>
-                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground">
-                    Resources
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <Link href="/career" legacyBehavior passHref>
-                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground">
-                    Career
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <Link href="/contact" legacyBehavior passHref>
-                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground">
-                    Contact
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <Link href="/about" legacyBehavior passHref>
-                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground">
-                    About Us
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+            {/* Resources */}
+            <div className="relative group">
+              <button
+                className="inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none"
+                onMouseEnter={() => setActiveDropdown('resources')}
+              >
+                Resources
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </button>
+              {activeDropdown === 'resources' && (
+                <div 
+                  className="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-[500px]"
+                  onMouseEnter={() => setActiveDropdown('resources')}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
+                  <div className="rounded-md border bg-popover p-4 shadow-md">
+                    <ul className="space-y-1">
+                      <li>
+                        <Link
+                          href="/careers"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
+                        >
+                          <div className="text-sm font-medium leading-none">
+                            Careers
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Join our team and grow with us
+                          </p>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/about-us"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
+                        >
+                          <div className="text-sm font-medium leading-none">
+                            About Us
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Our mission and vision
+                          </p>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/contact"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
+                        >
+                          <div className="text-sm font-medium leading-none">
+                            Contact Us
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Get in touch with our team
+                          </p>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/blogs"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
+                        >
+                          <div className="text-sm font-medium leading-none">
+                            Blog
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Latest articles and insights
+                          </p>
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
         </nav>
 
         <div className="hidden md:flex items-center space-x-4">
-          <Link href="/login">
-            <Button variant="ghost">Login</Button>
-          </Link>
-          <Button className="bg-forest-600 hover:bg-forest-700">
-            <Download className="mr-2 h-4 w-4" />
-            Download
-          </Button>
+          {loading ? (
+            <div className="w-8 h-8 bg-gray-200 rounded-full animate-pulse" />
+          ) : user ? (
+            <div className="flex items-center space-x-2">
+              <div className="text-right">
+                <p className="text-sm font-medium text-gray-900">
+                  {user.displayName || user.email?.split('@')[0]}
+                </p>
+                <p className="text-xs text-gray-500">{user.email}</p>
+              </div>
+              <button
+                onClick={logout}
+                className="p-2 rounded-full hover:bg-gray-100 transition"
+                title="Logout"
+              >
+                <LogOut className="h-5 w-5 text-gray-600" />
+              </button>
+            </div>
+          ) : (
+            <Link href="/login">
+              <Button variant="ghost">Login</Button>
+            </Link>
+          )}
+          <a href="https://play.google.com/store/apps/details?id=rupiya.app&pli=1" target="_blank" rel="noopener noreferrer">
+            <Button className="bg-forest-600 hover:bg-forest-700">
+              <Download className="mr-2 h-4 w-4" />
+              Download
+            </Button>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -305,74 +386,284 @@ export function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t bg-background">
+        <div className="md:hidden border-t bg-background max-h-[calc(100vh-64px)] overflow-y-auto">
           <nav className="container py-4 space-y-2">
-            <Link
-              href="/smart-farming"
-              className="block py-2 text-sm font-medium"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Smart Farming
-            </Link>
-            <Link
-              href="/carbon-credits"
-              className="block py-2 text-sm font-medium"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Carbon Credits
-            </Link>
+            {/* Smart Farming with Dropdown */}
+            <div>
+              <div className="flex items-center justify-between py-2">
+                <Link
+                  href="/smart-farming"
+                  className="flex-1 text-sm font-medium hover:text-forest-600"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Smart Farming
+                </Link>
+                <button
+                  onClick={() => setExpandedMenu(expandedMenu === "smart-farming" ? null : "smart-farming")}
+                  className="flex items-center justify-center px-2"
+                >
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform ${
+                      expandedMenu === "smart-farming" ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+              </div>
+              {expandedMenu === "smart-farming" && (
+                <div className="pl-4 space-y-2 py-2">
+                  <Link
+                    href="/smart-farming/soil-testing"
+                    className="block py-2 text-sm text-muted-foreground hover:text-forest-600"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Satellite Soil Testing
+                  </Link>
+                  <Link
+                    href="/smart-farming/crop-monitoring"
+                    className="block py-2 text-sm text-muted-foreground hover:text-forest-600"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    AI Crop Monitoring
+                  </Link>
+                  <Link
+                    href="/smart-farming/advisory"
+                    className="block py-2 text-sm text-muted-foreground hover:text-forest-600"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Agronomy Advisory
+                  </Link>
+                  <Link
+                    href="/smart-farming/inputs"
+                    className="block py-2 text-sm text-muted-foreground hover:text-forest-600"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Residue-Free Inputs
+                  </Link>
+                  <Link
+                    href="/smart-farming/insurance"
+                    className="block py-2 text-sm text-muted-foreground hover:text-forest-600"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Parametric Insurance
+                  </Link>
+                  <Link
+                    href="/smart-farming/buyback"
+                    className="block py-2 text-sm text-muted-foreground hover:text-forest-600"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Buy-Back Program
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* Carbon Credits with Dropdown */}
+            <div>
+              <div className="flex items-center justify-between py-2">
+                <Link
+                  href="/carbon-credits"
+                  className="flex-1 text-sm font-medium hover:text-forest-600"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Carbon Credits
+                </Link>
+                <button
+                  onClick={() => setExpandedMenu(expandedMenu === "carbon-credits" ? null : "carbon-credits")}
+                  className="flex items-center justify-center px-2"
+                >
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform ${
+                      expandedMenu === "carbon-credits" ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+              </div>
+              {expandedMenu === "carbon-credits" && (
+                <div className="pl-4 space-y-2 py-2">
+                  <Link
+                    href="/carbon-credits#what-are-credits"
+                    className="block py-2 text-sm text-muted-foreground hover:text-forest-600"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    What are Carbon Credits?
+                  </Link>
+                  <Link
+                    href="/carbon-credits#how-it-works"
+                    className="block py-2 text-sm text-muted-foreground hover:text-forest-600"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    How It Works
+                  </Link>
+                  <Link
+                    href="/carbon-credits#rewards"
+                    className="block py-2 text-sm text-muted-foreground hover:text-forest-600"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Rewards & Partnership
+                  </Link>
+                </div>
+              )}
+            </div>
+
             <Link
               href="/products"
-              className="block py-2 text-sm font-medium"
+              className="block py-2 text-sm font-medium hover:text-forest-600"
               onClick={() => setMobileMenuOpen(false)}
             >
               Products
             </Link>
-            <Link
-              href="/wallet"
-              className="block py-2 text-sm font-medium"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Digital Wallet
-            </Link>
-            <Link
-              href="/resources"
-              className="block py-2 text-sm font-medium"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Resources
-            </Link>
-            <Link
-              href="/career"
-              className="block py-2 text-sm font-medium"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Career
-            </Link>
-            <Link
-              href="/contact"
-              className="block py-2 text-sm font-medium"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Contact
-            </Link>
-            <Link
-              href="/about"
-              className="block py-2 text-sm font-medium"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              About Us
-            </Link>
+
+            {/* Digital Wallet with Dropdown */}
+            <div>
+              <div className="flex items-center justify-between py-2">
+                <Link
+                  href="/wallet"
+                  className="flex-1 text-sm font-medium hover:text-forest-600"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Digital Wallet
+                </Link>
+                <button
+                  onClick={() => setExpandedMenu(expandedMenu === "wallet" ? null : "wallet")}
+                  className="flex items-center justify-center px-2"
+                >
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform ${
+                      expandedMenu === "wallet" ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+              </div>
+              {expandedMenu === "wallet" && (
+                <div className="pl-4 space-y-2 py-2">
+                  <Link
+                    href="/wallet/recharge"
+                    className="block py-2 text-sm text-muted-foreground hover:text-forest-600"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Recharge
+                  </Link>
+                  <Link
+                    href="/wallet/bookings"
+                    className="block py-2 text-sm text-muted-foreground hover:text-forest-600"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Bookings
+                  </Link>
+                  <Link
+                    href="/wallet/insurance"
+                    className="block py-2 text-sm text-muted-foreground hover:text-forest-600"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Insurance
+                  </Link>
+                  <Link
+                    href="/wallet/gold"
+                    className="block py-2 text-sm text-muted-foreground hover:text-forest-600"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Gold Tech
+                  </Link>
+                  <Link
+                    href="/wallet/loans"
+                    className="block py-2 text-sm text-muted-foreground hover:text-forest-600"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Loans
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* Resources with Dropdown */}
+            <div>
+              <div className="flex items-center justify-between py-2">
+                <button
+                  className="flex-1 text-sm font-medium hover:text-forest-600 text-left"
+                  onClick={() => setExpandedMenu(expandedMenu === "resources" ? null : "resources")}
+                >
+                  Resources
+                </button>
+                <button
+                  onClick={() => setExpandedMenu(expandedMenu === "resources" ? null : "resources")}
+                  className="flex items-center justify-center px-2"
+                >
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform ${
+                      expandedMenu === "resources" ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+              </div>
+              {expandedMenu === "resources" && (
+                <div className="pl-4 space-y-2 py-2">
+                  <Link
+                    href="/careers"
+                    className="block py-2 text-sm text-muted-foreground hover:text-forest-600"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Careers
+                  </Link>
+                  <Link
+                    href="/about-us"
+                    className="block py-2 text-sm text-muted-foreground hover:text-forest-600"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    About Us
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="block py-2 text-sm text-muted-foreground hover:text-forest-600"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Contact Us
+                  </Link>
+                  <Link
+                    href="/blogs"
+                    className="block py-2 text-sm text-muted-foreground hover:text-forest-600"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Blog
+                  </Link>
+                </div>
+              )}
+            </div>
             <div className="pt-4 space-y-2">
-              <Link href="/login">
-                <Button variant="outline" className="w-full">
-                  Login
+              {loading ? (
+                <div className="w-full h-10 bg-gray-200 rounded animate-pulse" />
+              ) : user ? (
+                <>
+                  <div className="px-4 py-2 bg-gray-50 rounded text-sm">
+                    <p className="font-medium text-gray-900">
+                      {user.displayName || user.email?.split('@')[0]}
+                    </p>
+                    <p className="text-xs text-gray-600">{user.email}</p>
+                  </div>
+                  <Button
+                    variant="outline"
+                    className="w-full"
+                    onClick={() => {
+                      logout()
+                      setMobileMenuOpen(false)
+                    }}
+                  >
+                    <LogOut className="mr-2 h-4 w-4" />
+                    Logout
+                  </Button>
+                </>
+              ) : (
+                <Link href="/login" onClick={() => setMobileMenuOpen(false)}>
+                  <Button variant="outline" className="w-full">
+                    Login
+                  </Button>
+                </Link>
+              )}
+              <a href="https://play.google.com/store/apps/details?id=rupiya.app&pli=1" target="_blank" rel="noopener noreferrer" className="w-full">
+                <Button className="w-full bg-forest-600 hover:bg-forest-700">
+                  <Download className="mr-2 h-4 w-4" />
+                  Download
                 </Button>
-              </Link>
-              <Button className="w-full bg-forest-600 hover:bg-forest-700">
-                <Download className="mr-2 h-4 w-4" />
-                Download
-              </Button>
+              </a>
             </div>
           </nav>
         </div>
@@ -380,4 +671,3 @@ export function Header() {
     </header>
   )
 }
-

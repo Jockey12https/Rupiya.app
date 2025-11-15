@@ -19,10 +19,6 @@ export default function InvestorsPage() {
             <p className="text-lg text-muted-foreground">
               Join us in transforming Indian agriculture through technology, sustainability, and financial inclusion.
             </p>
-            <Button size="lg" className="bg-forest-600 hover:bg-forest-700">
-              Explore Opportunities
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
           </div>
         </div>
       </section>

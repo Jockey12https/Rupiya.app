@@ -64,7 +64,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/wallet/gold" className="text-muted-foreground hover:text-forest-600">
+                <Link href="/wallet/gold-tech" className="text-muted-foreground hover:text-forest-600">
                   Gold Solutions
                 </Link>
               </li>
@@ -149,9 +149,7 @@ export function Footer() {
               </Link>
             </div>
           </div>
-          <p className="mt-4 text-center text-xs text-muted-foreground">
-            Designed By Cravity Studio
-          </p>
+          
         </div>
       </div>
     </footer>

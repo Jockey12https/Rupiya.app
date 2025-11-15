@@ -138,7 +138,7 @@ export default function WalletPage() {
                   <li>• Jewellery</li>
                   <li>• Gold investment</li>
                 </ul>
-                <Link href="/wallet/gold">
+                <Link href="/wallet/gold-tech">
                   <Button className="w-full bg-forest-600 hover:bg-forest-700">
                     Know More
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -198,10 +198,6 @@ export default function WalletPage() {
                   <li>• Savings account</li>
                   <li>• Investment options</li>
                 </ul>
-                <Button variant="outline" className="w-full">
-                  Explore
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
               </CardContent>
             </Card>
           </div>
@@ -324,10 +320,12 @@ export default function WalletPage() {
           <h2 className="text-3xl md:text-4xl font-bold text-forest-900 mb-6">
             Start Using Digital Wallet Today
           </h2>
-          <Button size="lg" className="bg-forest-600 hover:bg-forest-700">
-            Download App
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          <a href="https://play.google.com/store/apps/details?id=rupiya.app&pli=1" target="_blank" rel="noopener noreferrer">
+            <Button size="lg" className="bg-forest-600 hover:bg-forest-700">
+              Download App
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </a>
         </div>
       </section>
     </div>

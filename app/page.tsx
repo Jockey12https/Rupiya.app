@@ -22,10 +22,14 @@ export default function HomePage() {
               <p className="text-lg text-muted-foreground max-w-xl">
                 From your fields to your future, rupiya.app stands with the hands that feed the nation. Let's grow together, sustainably and successfully.
               </p>
-              <Button size="lg" className="bg-forest-600 hover:bg-forest-700 text-white">
-                <Download className="mr-2 h-5 w-5" />
-                Download Now
-              </Button>
+              <div className="pt-4">
+                <a href="https://play.google.com/store/apps/details?id=rupiya.app&pli=1" target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" className="bg-forest-600 hover:bg-forest-700 text-white">
+                    <Download className="mr-2 h-5 w-5" />
+                    Download Now
+                  </Button>
+                </a>
+              </div>
             </div>
             <div className="relative">
               <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
@@ -69,10 +73,14 @@ export default function HomePage() {
               <p className="text-lg text-muted-foreground max-w-xl">
                 Regenerative farming isn't just a method—it's a promise to your land, your family, and the generations ahead.
               </p>
-              <Button size="lg" className="bg-forest-600 hover:bg-forest-700 text-white">
-                <Download className="mr-2 h-5 w-5" />
-                Download Now
-              </Button>
+              <div className="pt-4">
+                <a href="https://play.google.com/store/apps/details?id=rupiya.app&pli=1" target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" className="bg-forest-600 hover:bg-forest-700 text-white">
+                    <Download className="mr-2 h-5 w-5" />
+                    Download Now
+                  </Button>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -92,10 +100,14 @@ export default function HomePage() {
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               From recharges to loans, insurance to gold, rupiya.app puts everything you need right at your fingertips.
             </p>
-            <Button size="lg" className="bg-forest-600 hover:bg-forest-700 text-white">
-              <Download className="mr-2 h-5 w-5" />
-              Download Now
-            </Button>
+            <div className="pt-4">
+              <a href="https://play.google.com/store/apps/details?id=rupiya.app&pli=1" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="bg-forest-600 hover:bg-forest-700 text-white">
+                  <Download className="mr-2 h-5 w-5" />
+                  Download Now
+                </Button>
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -110,10 +122,14 @@ export default function HomePage() {
             <p className="text-lg text-muted-foreground">
               We empower farmers with high-quality fertilizers, advanced satellite-based soil analysis, and reliable crop insurance.
             </p>
-            <Button size="lg" className="bg-forest-600 hover:bg-forest-700 text-white">
-              <Download className="mr-2 h-5 w-5" />
-              Download Now
-            </Button>
+            <div className="pt-4">
+              <a href="https://play.google.com/store/apps/details?id=rupiya.app&pli=1" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="bg-forest-600 hover:bg-forest-700 text-white">
+                  <Download className="mr-2 h-5 w-5" />
+                  Download Now
+                </Button>
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -132,11 +148,13 @@ export default function HomePage() {
               <p className="text-lg text-white/90 max-w-xl">
                 One app, endless possibilities! From recharges to loans, bookings to insurance — rupiya.app makes finances effortless. Plus, enjoy exciting cashback on every spend!
               </p>
-              <Link href="/carbon-credits">
-                <Button size="lg" variant="secondary">
-                  Learn More
-                </Button>
-              </Link>
+              <div className="pt-4">
+                <Link href="/carbon-credits">
+                  <Button size="lg" variant="secondary">
+                    Learn More
+                  </Button>
+                </Link>
+              </div>
             </div>
             <div className="relative">
               <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
@@ -168,7 +186,7 @@ export default function HomePage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-sm text-muted-foreground mb-6">
                   Mobile top-ups, DTH recharges, and FASTag refills are made fast, secure, and hassle-free with rupiya.app.
                 </p>
                 <Link href="/wallet/recharge">
@@ -188,7 +206,7 @@ export default function HomePage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-sm text-muted-foreground mb-6">
                   Enjoy instant bookings for flights, buses, trains, and hotels with ease. Experience smooth travel and luxurious stays.
                 </p>
                 <Link href="/wallet/bookings">
@@ -208,7 +226,7 @@ export default function HomePage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-sm text-muted-foreground mb-6">
                   Providing comprehensive insurance solutions for passenger cars, two-wheelers, and more. With affordable plans and easy claims.
                 </p>
                 <Link href="/wallet/insurance">
@@ -228,7 +246,7 @@ export default function HomePage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-sm text-muted-foreground mb-6">
                   rupiya.app offers a complete gold solution, including gold loans, digital gold, and jewellery at the Lowest Making Charges.
                 </p>
                 <Link href="/wallet/gold">
@@ -248,7 +266,7 @@ export default function HomePage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-sm text-muted-foreground mb-6">
                   rupiya.app offers quick and easy loan solutions to meet your financial needs. Whether it's for personal, agricultural, or business purposes.
                 </p>
                 <Link href="/wallet/loans">
@@ -268,7 +286,7 @@ export default function HomePage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-sm text-muted-foreground mb-6">
                   Satellite monitoring, soil testing, advisory, and more. Everything you need for residue-free farming.
                 </p>
                 <Link href="/smart-farming">
@@ -428,7 +446,7 @@ export default function HomePage() {
       {/* Final CTA */}
       <section className="py-20 bg-gradient-to-br from-forest-600 to-forest-800 text-white">
         <div className="container text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8">
             Grow your money<br />
             with rupiya.app
           </h2>
@@ -441,4 +459,3 @@ export default function HomePage() {
     </div>
   )
 }
-
