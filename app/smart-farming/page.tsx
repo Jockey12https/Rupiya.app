@@ -184,7 +184,7 @@ export default function SmartFarmingPage() {
                 ))}
               </ul>
               <Link href="/products">
-                <Button className="bg-forest-600 hover:bg-forest-700">Browse Products <ArrowRight className="ml-2 h-4 w-4" /></Button>
+                <Button className="bg-forest-600 hover:bg-forest-700 mt-6">Browse Products <ArrowRight className="ml-2 h-4 w-4" /></Button>
               </Link>
             </div>
           </div>

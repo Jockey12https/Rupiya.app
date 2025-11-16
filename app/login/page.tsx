@@ -157,7 +157,7 @@ export default function LoginPage() {
 
             {/* Forgot Password */}
             <div className="text-center text-sm">
-              <Link href="/forgot-password" className="text-forest-600 hover:text-forest-700">
+              <Link href="/login" className="text-forest-600 hover:text-forest-700">
                 Forgot password?
               </Link>
             </div>
