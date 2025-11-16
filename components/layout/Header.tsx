@@ -217,7 +217,7 @@ export function Header() {
                       <li>
                         <Link
                           href="/carbon-credits#how-it-works"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground text-center"
                         >
                           <div className="text-sm font-medium leading-none">
                             How It Works
