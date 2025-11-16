@@ -268,9 +268,11 @@ export default function ContactPage() {
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
             Download the Rupiya app and connect with our support team through in-app chat for instant help.
           </p>
+          <a href="https://play.google.com/store/apps/details?id=rupiya.app&pli=1" target="_blank" rel="noopener noreferrer">
           <Button size="lg" variant="secondary" className="bg-white text-forest-600 hover:bg-gray-100">
             Download App
           </Button>
+          </a>
         </div>
       </section>
     </div>

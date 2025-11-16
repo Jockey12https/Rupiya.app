@@ -13,22 +13,22 @@ export function Footer() {
               Empowering farmers with residue-free farming, regenerative agriculture, and financial inclusivity.
             </p>
             <div className="flex space-x-4">
-              <Link href="https://facebook.com" className="text-muted-foreground hover:text-forest-600">
+              <Link href="https://www.facebook.com/people/Rupiyaapp/61554040353126/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-forest-600">
                 <Facebook className="h-5 w-5" />
               </Link>
-              <Link href="https://twitter.com" className="text-muted-foreground hover:text-forest-600">
+              <Link href="https://x.com/rupiyaonline" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-forest-600">
                 <Twitter className="h-5 w-5" />
               </Link>
-              <Link href="https://instagram.com" className="text-muted-foreground hover:text-forest-600">
+              <Link href="https://www.instagram.com/rupiyaonline/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-forest-600">
                 <Instagram className="h-5 w-5" />
               </Link>
-              <Link href="https://linkedin.com" className="text-muted-foreground hover:text-forest-600">
+              <Link href="https://www.linkedin.com/company/rupiyaonline/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-forest-600">
                 <Linkedin className="h-5 w-5" />
               </Link>
-              <Link href="https://youtube.com" className="text-muted-foreground hover:text-forest-600">
+              <Link href="https://www.youtube.com/@rupiyaonline" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-forest-600">
                 <Youtube className="h-5 w-5" />
               </Link>
-              <Link href="https://whatsapp.com" className="text-muted-foreground hover:text-forest-600">
+              <Link href="https://api.whatsapp.com/send/?phone=917572860606&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-forest-600">
                 <MessageCircle className="h-5 w-5" />
               </Link>
             </div>

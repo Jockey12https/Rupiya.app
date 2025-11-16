@@ -258,10 +258,12 @@ export default function BlogsPage() {
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Apply the insights from our blog. Download Rupiya and start your journey toward sustainable, profitable farming.
           </p>
+          <a href="https://play.google.com/store/apps/details?id=rupiya.app&pli=1" target="_blank" rel="noopener noreferrer">
           <Button size="lg" className="bg-forest-600 hover:bg-forest-700">
             Download App Today
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
+          </a>
         </div>
       </section>
     </div>

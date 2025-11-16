@@ -316,10 +316,12 @@ export default function AboutUsPage() {
             Be part of India's agricultural transformation. Download the app today and start your journey with Rupiya.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
+           <a href="https://play.google.com/store/apps/details?id=rupiya.app&pli=1" target="_blank" rel="noopener noreferrer">
             <Button size="lg" variant="secondary" className="bg-white text-forest-600 hover:bg-gray-100">
               Download App
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
+            </a>
             <Link href="/contact">
               <Button size="lg" variant="secondary" className="bg-white text-forest-600 hover:bg-gray-100">
                 Get in Touch

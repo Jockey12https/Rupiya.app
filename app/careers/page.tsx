@@ -109,10 +109,13 @@ export default function CareersPage() {
             <p className="text-xl text-white/90">
               Be part of India's agricultural revolution. Help us empower 50,000+ farmers with technology and financial inclusion.
             </p>
-            <Button size="lg" variant="secondary" className="bg-white text-forest-600 hover:bg-gray-100">
-              Explore Opportunities
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+
+            <Link href="#open-positions">
+              <Button size="lg" variant="secondary" className="bg-white text-forest-600 hover:bg-gray-100 mt-8">
+                Explore Opportunities
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -178,7 +181,7 @@ export default function CareersPage() {
       </section>
 
       {/* Open Positions */}
-      <section className="py-20 bg-gray-50">
+      <section id="open-positions" className="py-20 bg-gray-50">
         <div className="container">
           <h2 className="text-3xl md:text-4xl font-bold text-forest-900 mb-12 text-center">
             Open Positions

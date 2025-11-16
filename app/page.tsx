@@ -224,7 +224,7 @@ export default function HomePage() {
                 One app, endless possibilities! From recharges to loans, bookings to insurance — rupiya.app makes finances effortless. Plus, enjoy exciting cashback on every spend!
               </p>
               <Link href="/carbon-credits">
-                <Button size="lg" variant="secondary" className="shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                <Button size="lg" variant="secondary" className="shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 mt-8">
                   Learn More
                 </Button>
               </Link>
@@ -400,12 +400,12 @@ export default function HomePage() {
           >
             {[
               {
-                name: "Ramesh Yadav",
+                name: "Pooja Sharma",
                 rating: 5,
                 text: "All financial services in one app, making transactions super easy! No need for multiple apps anymore. The cashback offers are the best part!",
               },
               {
-                name: "Pooja Sharma",
+                name: "Ramesh Yadav",
                 rating: 5,
                 text: "Fast, secure, and convenient! Everything from recharges to bill payments is available in one place. The cashback rewards make it even better!",
               },
@@ -526,30 +526,39 @@ export default function HomePage() {
 
       {/* Final CTA */}
       <section className="py-20 bg-gradient-to-br from-forest-600 to-forest-800 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')]"></div>
-        </div>
-        <motion.div 
-          className="container text-center relative z-10"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Grow your money<br />
-            with rupiya.app
-          </h2>
-          <Button 
-            size="lg" 
-            variant="secondary" 
-            className="bg-white text-forest-600 hover:bg-beige-50 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-          >
-            <Download className="mr-2 h-5 w-5" />
-            Download Now
-          </Button>
-        </motion.div>
-      </section>
+  <div className="absolute inset-0 opacity-10">
+    <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')]"></div>
+  </div>
+
+  <motion.div 
+    className="container text-center relative z-10"
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+  >
+    <h2 className="text-3xl md:text-4xl font-bold mb-6">
+      Grow your money<br />
+      with rupiya.app
+    </h2>
+
+    <a 
+      href="https://play.google.com/store/apps/details?id=rupiya.app&pli=1" 
+      target="_blank" 
+      rel="noopener noreferrer"
+    >
+      <Button 
+        size="lg" 
+        variant="secondary" 
+        className="bg-white text-forest-600 hover:bg-beige-50 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+      >
+        <Download className="mr-2 h-5 w-5" />
+        Download Now
+      </Button>
+    </a>
+  </motion.div>
+</section>
+
     </div>
   )
 }
